@@ -1,0 +1,12 @@
+F:\VsCode\MathCourse\MathCourse\bin\Debug\netcoreapp3.1\MathCourse.exe
+F:\VsCode\MathCourse\MathCourse\bin\Debug\netcoreapp3.1\MathCourse.deps.json
+F:\VsCode\MathCourse\MathCourse\bin\Debug\netcoreapp3.1\MathCourse.runtimeconfig.json
+F:\VsCode\MathCourse\MathCourse\bin\Debug\netcoreapp3.1\MathCourse.runtimeconfig.dev.json
+F:\VsCode\MathCourse\MathCourse\bin\Debug\netcoreapp3.1\MathCourse.dll
+F:\VsCode\MathCourse\MathCourse\bin\Debug\netcoreapp3.1\MathCourse.pdb
+F:\VsCode\MathCourse\MathCourse\obj\Debug\netcoreapp3.1\MathCourse.csprojAssemblyReference.cache
+F:\VsCode\MathCourse\MathCourse\obj\Debug\netcoreapp3.1\MathCourse.AssemblyInfoInputs.cache
+F:\VsCode\MathCourse\MathCourse\obj\Debug\netcoreapp3.1\MathCourse.AssemblyInfo.cs
+F:\VsCode\MathCourse\MathCourse\obj\Debug\netcoreapp3.1\MathCourse.dll
+F:\VsCode\MathCourse\MathCourse\obj\Debug\netcoreapp3.1\MathCourse.pdb
+F:\VsCode\MathCourse\MathCourse\obj\Debug\netcoreapp3.1\MathCourse.genruntimeconfig.cache
