@@ -53,7 +53,7 @@ namespace MathCourse
             else { return T.height; }
         }
         //左左型 右旋转
-        public static AvlNode R_Rotate(ref AvlNode node)
+        public static AvlNode R_Rotate(AvlNode node)
         {
             AvlNode node2 = node.lchild;
             node.lchild = node2.rchild;
@@ -82,7 +82,7 @@ namespace MathCourse
         }
 
         //右右型 左旋转
-        public static AvlNode L_Rotate(ref AvlNode node)
+        public static AvlNode L_Rotate(AvlNode node)
         {
             AvlNode node2 = node.rchild;
             node.rchild = node2.lchild;
@@ -111,22 +111,23 @@ namespace MathCourse
         }
 
         //左右型 先左转 再右转
-        public static AvlNode L_R_Rotate(ref AvlNode node)
+        public static AvlNode L_R_Rotate(AvlNode node)
         {
-            node.lchild = L_Rotate(ref node.lchild);
-            return R_Rotate(ref node);
+            node.lchild = L_Rotate(node.lchild);
+            return R_Rotate(node);
         }
 
         //右左型 先右转 再左转
-        public static AvlNode R_L_Rotate(ref AvlNode node)
+        public static AvlNode R_L_Rotate(AvlNode node)
         {
-            node.rchild = R_Rotate(ref node.rchild); 
-            return L_Rotate(ref node);
+            node.rchild = R_Rotate(node.rchild); 
+            return L_Rotate(node);
         }
 
         public AvlNode Insert(int data)
         {
             AvlNode node = Search(data);
+            AvlNode res = null;
             //查找失败的时候才插入
             if (node == null)
             {
@@ -148,12 +149,12 @@ namespace MathCourse
                         //左左型
                         if (height(node.lchild) - height(node.lchild.lchild) == 1)
                         {
-                            node = R_Rotate(ref node);
+                            res = R_Rotate(node);
                         }
                         //左右型
                         else 
                         {
-                            node = L_R_Rotate(ref node);
+                            res = L_R_Rotate(node);
                         }
                     }
                     else if(height(node.lchild) - height(node.rchild) == -2) 
@@ -162,12 +163,12 @@ namespace MathCourse
                         //右右型
                         if (height(node.rchild) - height(node.rchild.rchild) == 1)
                         {
-                            node = L_Rotate(ref node);
+                            res = L_Rotate(node);
                         }
                         //右左型
                         else
                         {
-                            node = R_L_Rotate(ref node);
+                            res = R_L_Rotate(node);
                         }
                     }
                     if (!isBalanced)
@@ -177,6 +178,12 @@ namespace MathCourse
                         UpdateHeight(node);
                 }
 
+            }
+
+            if(node != null)
+            {
+                _root = node;
+                node = node.parent;
             }
 
             return node;
@@ -221,13 +228,13 @@ namespace MathCourse
         public static void Traverse(AvlNode root)
         {
             Stack<AvlNode> treeStack = new Stack<AvlNode>();
-            GoAlongLeftBranch(root, treeStack);
-            while (treeStack.Count > 0)
+            while (true)
             {
-                AvlNode nowNode = treeStack.Pop();
-                Console.Write(nowNode.data + " ");
-                if (nowNode.rchild != null)
-                    GoAlongLeftBranch(nowNode.rchild, treeStack);
+                GoAlongLeftBranch(root, treeStack);
+                if (treeStack.Count <= 0) break;
+                root = treeStack.Pop();
+                Console.Write(root.data + " ");
+                root = root.rchild;
             }
         }
     }

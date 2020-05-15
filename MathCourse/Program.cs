@@ -26,18 +26,12 @@ namespace MathCourse
         static void Main(string[] args)
         {
             AVLTree avlTree = new AVLTree();
-            for (int i = 1; i <= 5; i++)
+            for (int i = 1; i <= 20; i++)
             {
                 avlTree.Insert(i);
-                AVLTree.Traverse(avlTree._root);
-                Console.WriteLine();
             }
-
-            //for (int i = 1; i <= 10; i++)
-            //{
-            //    avlTree.Insert(i);
-            //}
-            //Console.WriteLine("height:" + avlTree.Search(3).height);
+            AVLTree.Traverse(avlTree._root);
+            
             Console.ReadKey();
         }
     }
